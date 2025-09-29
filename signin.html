@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Todo App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container">
+      <div class="auth-card" id="auth">
+        <div class="auth-header">
+          <div class="auth-icon">🔐</div>
+          <h1>Welcome Back</h1>
+          <p class="auth-subtitle">Sign in to continue to your dashboard</p>
+        </div>
+        
+        <form class="auth-form" onsubmit="return false;">
+          <div class="input-group">
+            <label for="signin-email">Email Address</label>
+            <input id="signin-email" type="email" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="signin-password">Password</label>
+            <input id="signin-password" type="password" placeholder="Enter your password" required>
+          </div>
+          
+          <button type="button" class="auth-btn" onclick="signin(
+            document.getElementById('signin-email').value,
+            document.getElementById('signin-password').value
+          )">
+            <span>🚀</span> Sign In
+          </button>
+        </form>
+        
+        <div class="auth-footer">
+          <p>Don't have an account? <a href="signup.html" class="auth-link">Sign Up</a></p>
+        </div>
+      </div>
+    </div>
+</body>
+<script src="signin.js"></script>
+</html>

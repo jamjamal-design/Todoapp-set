@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Fallback styles to ensure visibility */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .dashboard-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            min-height: 400px;
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+      <div class="card" id="todo-app" style="display: block; opacity: 1;">
+        <div class="header">
+          <div class="header-content">
+            <h1>📝 My Todo Dashboard</h1>
+            <p id="welcome" class="welcome-text"></p>
+          </div>
+          <button class="logout-btn" onclick="logout()">
+            <span>🚪</span> Logout
+          </button>
+        </div>
+        
+        <div class="todo-input-section">
+          <div class="input-container">
+            <input id="todo-input" placeholder="What needs to be done?" class="todo-input">
+            <button onclick="addTodo()" class="add-btn">
+              <span>➕</span> Add Todo
+            </button>
+          </div>
+        </div>
+        
+        <div class="todo-list-section">
+          <div class="list-header">
+            <h3>Your Tasks</h3>
+            <span id="todo-count" class="todo-count">0 tasks</span>
+          </div>
+          <ul id="todo-list" class="todo-list"></ul>
+          <div id="empty-state" class="empty-state" style="display:none;">
+            <div class="empty-icon">📋</div>
+            <p>No tasks yet. Add one above to get started!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<script src="dashboard.js"></script>
+</html>
