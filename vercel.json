@@ -1,56 +1,44 @@
 {
-  "version": 2,
-  "name": "todo-app",
-  "builds": [
+  "rewrites": [
     {
-      "src": "**/*.html",
-      "use": "@vercel/static"
+      "source": "/",
+      "destination": "/signup.html"
     },
     {
-      "src": "**/*.css",
-      "use": "@vercel/static"
+      "source": "/signup",
+      "destination": "/signup.html"
     },
     {
-      "src": "**/*.js",
-      "use": "@vercel/static"
+      "source": "/signin",
+      "destination": "/signin.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/signin.html"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/dashboard.html"
+    },
+    {
+      "source": "/app",
+      "destination": "/dashboard.html"
+    },
+    {
+      "source": "/home",
+      "destination": "/dashboard.html"
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "/",
-      "dest": "/signup.html"
+      "source": "/index.html",
+      "destination": "/signup.html",
+      "permanent": true
     },
     {
-      "src": "/signup",
-      "dest": "/signup.html"
-    },
-    {
-      "src": "/signin",
-      "dest": "/signin.html"
-    },
-    {
-      "src": "/login",
-      "dest": "/signin.html"
-    },
-    {
-      "src": "/dashboard",
-      "dest": "/dashboard.html"
-    },
-    {
-      "src": "/app",
-      "dest": "/dashboard.html"
-    },
-    {
-      "src": "/home",
-      "dest": "/dashboard.html"
-    },
-    {
-      "src": "/(.*\\.(css|js|html))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/signup.html"
+      "source": "/index",
+      "destination": "/signup.html",
+      "permanent": true
     }
   ],
   "headers": [
@@ -64,10 +52,6 @@
         {
           "key": "X-Frame-Options",
           "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
         },
         {
           "key": "Referrer-Policy",
@@ -94,32 +78,6 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/404.html"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/signup.html",
-      "permanent": true
-    },
-    {
-      "source": "/index",
-      "destination": "/signup.html",
-      "permanent": true
-    }
-  ],
-  "functions": {
-    "app/**/*.js": {
-      "runtime": "@vercel/node@18"
-    }
-  },
-  "regions": ["iad1"],
-  "framework": null,
-  "public": true,
   "cleanUrls": true,
   "trailingSlash": false
 }
